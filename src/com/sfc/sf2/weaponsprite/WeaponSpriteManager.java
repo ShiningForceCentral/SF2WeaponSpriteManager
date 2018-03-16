@@ -9,6 +9,7 @@ import com.sfc.sf2.graphics.GraphicsManager;
 import com.sfc.sf2.graphics.Tile;
 import com.sfc.sf2.weaponsprite.io.DisassemblyManager;
 import com.sfc.sf2.weaponsprite.io.PngManager;
+import com.sfc.sf2.weaponsprite.io.GifManager;
 import com.sfc.sf2.palette.PaletteManager;
 import java.awt.Color;
 
@@ -70,6 +71,20 @@ public class WeaponSpriteManager {
         System.out.println("com.sfc.sf2.weaponsprite.WeaponSpriteManager.exportPng() - Exporting PNG ...");
         PngManager.exportPng(weaponsprite, filepath);
         System.out.println("com.sfc.sf2.weaponsprite.WeaponSpriteManager.exportPng() - PNG exported.");       
+    }
+    
+    public void importGif(String basepath){
+        System.out.println("com.sfc.sf2.weaponsprite.WeaponSpriteManager.importGif() - Importing GIF ...");
+        weaponsprite = GifManager.importGif(basepath);
+        tiles = weaponsprite.getTiles();
+        graphicsManager.setTiles(tiles);
+        System.out.println("com.sfc.sf2.weaponsprite.WeaponSpriteManager.importGif() - GIF imported.");
+    }
+    
+    public void exportGif(String filepath){
+        System.out.println("com.sfc.sf2.weaponsprite.WeaponSpriteManager.exportGif() - Exporting GIF ...");
+        GifManager.exportGif(weaponsprite, filepath);
+        System.out.println("com.sfc.sf2.weaponsprite.WeaponSpriteManager.exportGif() - GIF exported.");       
     }
 
     public WeaponSprite getWeaponsprite() {
